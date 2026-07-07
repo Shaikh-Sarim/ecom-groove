@@ -10,7 +10,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(__dirname));
+
+// Serve static files with proper cache headers
+app.use(express.static(path.join(__dirname), {
+  maxAge: '1d',
+  etag: false
+}));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index_new.html'));
@@ -56,6 +61,11 @@ app.post('/api/contact', async (req, res) => {
     console.error('Email send failed:', error);
     res.status(500).json({ success: false, message: 'Unable to send message right now.' });
   }
+});
+
+// Catch-all route to serve index_new.html for client-side routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index_new.html'));
 });
 
 const isConfigured = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.CONTACT_TO;

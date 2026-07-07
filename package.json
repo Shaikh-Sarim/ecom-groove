@@ -1,0 +1,15 @@
+{
+  "name": "ecom-groove-site",
+  "version": "1.0.0",
+  "description": "Backend for the Ecom Groove contact form",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.1",
+    "dotenv": "^16.4.1",
+    "express": "^4.21.2",
+    "nodemailer": "^6.9.3"
+  }
+}

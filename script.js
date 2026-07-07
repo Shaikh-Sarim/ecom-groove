@@ -1,3 +1,75 @@
+// Handle contact form success/error messages
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const contactStatus = params.get('contact');
+  
+  if (contactStatus) {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `contact-message contact-${contactStatus}`;
+      messageDiv.style.cssText = `
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border-radius: 8px;
+        font-weight: 500;
+        text-align: center;
+        animation: slideDown 0.3s ease-out;
+      `;
+      
+      if (contactStatus === 'success') {
+        messageDiv.textContent = '✓ Thank you! Your message has been sent successfully. We\'ll get back to you soon!';
+        messageDiv.style.backgroundColor = '#d4edda';
+        messageDiv.style.color = '#155724';
+        messageDiv.style.borderLeft = '4px solid #28a745';
+      } else if (contactStatus === 'error') {
+        messageDiv.textContent = '✗ Oops! There was an error sending your message. Please try again or contact us directly.';
+        messageDiv.style.backgroundColor = '#f8d7da';
+        messageDiv.style.color = '#721c24';
+        messageDiv.style.borderLeft = '4px solid #dc3545';
+      }
+      
+      // Insert at the top of contact section
+      const contactShell = contactSection.querySelector('.contact-shell');
+      if (contactShell) {
+        contactShell.parentNode.insertBefore(messageDiv, contactShell);
+      } else {
+        contactSection.insertBefore(messageDiv, contactSection.firstChild);
+      }
+      
+      // Clean URL params after showing message
+      const cleanUrl = window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+      
+      // Auto-remove message after 5 seconds
+      setTimeout(() => {
+        messageDiv.style.opacity = '0';
+        messageDiv.style.transition = 'opacity 0.3s ease-out';
+        setTimeout(() => messageDiv.remove(), 300);
+      }, 5000);
+    }
+  }
+  
+  // Add CSS animation
+  if (!document.querySelector('style[data-contact-animation]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-contact-animation', 'true');
+    style.textContent = `
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+})();
+
 const navToggle = document.querySelector('.nav-toggle');
 const nav = document.querySelector('.site-nav');
 

@@ -1,3 +1,9 @@
+// Local development server only
+// This file is NOT used in the Vercel deployment
+// Vercel automatically detects and uses /api/contact.js as a serverless function
+// To run locally: npm start (uses this server.js)
+// To deploy: git push to GitHub (Vercel uses /api/contact.js)
+
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
@@ -18,14 +24,14 @@ app.use(express.static(path.join(__dirname), {
 }));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index_new.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.post('/api/contact', async (req, res) => {
   const { name, email, brand, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ success: false, message: 'Name, email, and message are required.' });
+    return res.redirect(302, '/?contact=error&reason=missing-fields#contact');
   }
 
   try {
@@ -55,24 +61,28 @@ app.post('/api/contact', async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-
-    res.json({ success: true, message: 'Your message has been sent.' });
+    res.redirect(302, '/?contact=success#contact');
   } catch (error) {
     console.error('Email send failed:', error);
-    res.status(500).json({ success: false, message: 'Unable to send message right now.' });
+    res.redirect(302, '/?contact=error#contact');
   }
 });
 
-// Catch-all route to serve index_new.html for client-side routing
+// Catch-all route to serve index.html for client-side routing
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index_new.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const isConfigured = process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS && process.env.CONTACT_TO;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-  if (!isConfigured) {
-    console.log('Email configuration is incomplete. Update the .env file with SMTP details before sending mail.');
-  }
-});
+// Only listen if this file is run directly (not imported)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Local dev server running on port ${PORT}`);
+    if (!isConfigured) {
+      console.log('Email configuration is incomplete. Update the .env file with SMTP details before sending mail.');
+    }
+  });
+}
+
+module.exports = app;

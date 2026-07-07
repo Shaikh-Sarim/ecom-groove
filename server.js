@@ -1,8 +1,7 @@
-// Local development server only
-// This file is NOT used in the Vercel deployment
-// Vercel automatically detects and uses /api/contact.js as a serverless function
-// To run locally: npm start (uses this server.js)
-// To deploy: git push to GitHub (Vercel uses /api/contact.js)
+// Express server for serving static files and handling non-API routes
+// Used in both local development (npm start) AND Vercel production deployment
+// Serves: index.html, styles.css, images, and script.js
+// API route /api/contact is handled by /api/contact.js (Vercel serverless function)
 
 const express = require('express');
 const cors = require('cors');

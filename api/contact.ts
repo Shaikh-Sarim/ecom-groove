@@ -1,19 +1,29 @@
-// Vercel serverless function for handling contact form submissions
-// This replaces the /api/contact route from server.js for production
-const nodemailer = require('nodemailer');
+import { VercelRequest, VercelResponse } from '@vercel/node';
+import nodemailer from 'nodemailer';
 
-export default async function handler(req, res) {
+interface ContactRequest {
+  name: string;
+  email: string;
+  brand?: string;
+  message: string;
+}
+
+export default async function handler(
+  req: VercelRequest,
+  res: VercelResponse
+): Promise<void> {
   // Only allow POST requests
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    res.status(405).json({ error: 'Method not allowed' });
+    return;
   }
 
-  const { name, email, brand, message } = req.body;
+  const { name, email, brand, message } = req.body as ContactRequest;
 
   // Validate required fields
   if (!name || !email || !message) {
-    // For form submissions (non-fetch), redirect with error
-    return res.redirect(302, '/?contact=error&reason=missing-fields#contact');
+    res.redirect(302, '/?contact=error&reason=missing-fields#contact');
+    return;
   }
 
   try {
@@ -48,10 +58,10 @@ export default async function handler(req, res) {
     await transporter.sendMail(mailOptions);
 
     // On success, redirect back with success flag
-    return res.redirect(302, '/?contact=success#contact');
+    res.redirect(302, '/?contact=success#contact');
   } catch (error) {
     console.error('Email send failed:', error);
     // On failure, redirect with error flag
-    return res.redirect(302, '/?contact=error#contact');
+    res.redirect(302, '/?contact=error#contact');
   }
 }

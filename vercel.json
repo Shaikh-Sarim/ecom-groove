@@ -1,4 +1,3 @@
 {
-  "version": 2,
-  "buildCommand": "npm install && tsc"
+  "version": 2
 }

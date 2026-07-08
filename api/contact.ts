@@ -1,4 +1,4 @@
-import { VercelRequest, VercelResponse } from '@vercel/node';
+import { IncomingMessage, ServerResponse } from 'http';
 import nodemailer from 'nodemailer';
 
 interface ContactRequest {
@@ -9,12 +9,13 @@ interface ContactRequest {
 }
 
 export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
+  req: IncomingMessage & { body?: ContactRequest },
+  res: ServerResponse
 ): Promise<void> {
   // Only allow POST requests
   if (req.method !== 'POST') {
-    res.status(405).json({ error: 'Method not allowed' });
+    res.writeHead(405, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ error: 'Method not allowed' }));
     return;
   }
 
@@ -22,7 +23,8 @@ export default async function handler(
 
   // Validate required fields
   if (!name || !email || !message) {
-    res.redirect(302, '/?contact=error&reason=missing-fields#contact');
+    res.writeHead(302, { Location: '/?contact=error&reason=missing-fields#contact' });
+    res.end();
     return;
   }
 
@@ -58,10 +60,12 @@ export default async function handler(
     await transporter.sendMail(mailOptions);
 
     // On success, redirect back with success flag
-    res.redirect(302, '/?contact=success#contact');
+    res.writeHead(302, { Location: '/?contact=success#contact' });
+    res.end();
   } catch (error) {
     console.error('Email send failed:', error);
     // On failure, redirect with error flag
-    res.redirect(302, '/?contact=error#contact');
+    res.writeHead(302, { Location: '/?contact=error#contact' });
+    res.end();
   }
 }

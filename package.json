@@ -1,15 +1,16 @@
 {
   "name": "ecom-groove-site",
   "version": "1.0.0",
-  "description": "Backend for the Ecom Groove contact form",
-  "main": "server.js",
+  "description": "Ecom Groove Vercel API with TypeScript",
   "scripts": {
-    "start": "node server.js"
+    "build": "tsc"
   },
   "dependencies": {
-    "cors": "^2.8.1",
-    "dotenv": "^16.4.1",
-    "express": "^4.21.2",
     "nodemailer": "^6.9.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/nodemailer": "^6.4.14"
   }
 }

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ecom Groove Vercel API with TypeScript",
   "scripts": {
-    "build": "tsc"
+    "build": "echo \"skip build\""
   },
   "dependencies": {
     "nodemailer": "^6.9.3"

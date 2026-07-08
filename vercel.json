@@ -1,14 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": "index.html,styles.css,script.js,logo.jpg,hero.png,image.png,image.jpg,.env"
-      }
-    }
-  ],
+  "outputDirectory": "public",
   "routes": [
     {
       "src": "/api/(.*)",
@@ -16,7 +8,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "/index.html"
     }
   ]
 }

@@ -1,9 +1,11 @@
 {
   "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" }
+  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "\\/(.*\\.(?:css|js|png|jpg|jpeg|svg|gif|woff2?|ttf))$", "dest": "/$1" },
-    { "src": "\\/api\\/(.*)$", "status": 404, "dest": "" },
     { "src": "\\/(.*)", "dest": "/index.html" }
   ]
 }

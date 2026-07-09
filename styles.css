@@ -196,14 +196,18 @@ img {
   background: none;
   border: 0;
   cursor: pointer;
-  padding: 0.3rem;
+  padding: 0.5rem;
+  width: auto;
+  height: auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-toggle span {
   display: block;
-  width: 24px;
-  height: 2px;
-  margin: 4px 0;
+  width: 28px;
+  height: 2.5px;
+  margin: 5px 0;
   background: var(--navy);
   border-radius: 999px;
   transition: transform 0.25s ease, opacity 0.25s ease;
@@ -1270,9 +1274,10 @@ h2 {
 @media (max-width: 720px) {
   .nav-wrap {
     grid-template-columns: 1fr auto;
-    padding: 0.85rem 1.2rem;
+    padding: 0.85rem 0.8rem;
     gap: 1rem;
     border-radius: 999px;
+    margin: 0 0.5rem;
   }
 
   .brand {

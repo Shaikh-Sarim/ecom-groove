@@ -5,8 +5,11 @@
   ],
   "routes": [
     { "src": "^/api/contact$", "dest": "/api/contact" },
-    { "handle": "filesystem" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
+
+
+
 
 

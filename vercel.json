@@ -1,5 +1,15 @@
 {
-  "version": 2
+  "version": 2,
+  "buildCommand": "npm run build",
+  "framework": null,
+  "builds": [
+    { "src": "api/**/*.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "^/api/(.*)", "dest": "/api/$1" },
+    { "src": "^/(.*\\.[a-z]+)$", "dest": "/$1" },
+    { "src": "^/(.*)$", "dest": "/index.html" }
+  ]
 }
 
 

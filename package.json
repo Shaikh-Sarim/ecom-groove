@@ -6,7 +6,8 @@
     "build": "echo \"skip build\""
   },
   "dependencies": {
-    "nodemailer": "^6.9.3"
+    "nodemailer": "^6.9.3",
+    "@vercel/node": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",

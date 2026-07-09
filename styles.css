@@ -97,6 +97,14 @@ img {
   font-size: 1.05rem;
 }
 
+.brand-ecom {
+  color: var(--navy);
+}
+
+.brand-groove {
+  color: var(--teal);
+}
+
 .brand-mark {
   width: 14px;
   height: 14px;

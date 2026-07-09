@@ -14,78 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <style>
-/* Inlined CSS to avoid external asset routing issues */
-:root {
-  --navy: #0b1f3a;
-  --teal: #2bb3b1;
-  --bg: #f4f7f8;
-  --surface: rgba(255,255,255,0.78);
-  --text: #10253f;
-  --muted: #64809b;
-  --border: rgba(11, 31, 58, 0.08);
-  --shadow: 0 18px 50px rgba(7, 25, 48, 0.12);
-  --radius: 24px;
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  background: linear-gradient(120deg, #f9fbfc 0%, var(--bg) 100%);
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-img { max-width: 100%; display: block; }
-
-.page-bg { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(circle at top left, rgba(43, 179, 177, 0.18), transparent 25%), radial-gradient(circle at bottom right, rgba(11, 31, 58, 0.16), transparent 28%); z-index: -1; }
-
-.container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
-.section { padding: 4.5rem 0; }
-
-.site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: rgba(250, 252, 253, 0.75); border-bottom: 1px solid rgba(11, 31, 58, 0.06); }
-.nav-wrap { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; }
-.brand { display: inline-flex; align-items: center; gap: 0.7rem; color: var(--navy); font-weight: 800; font-family: 'Poppins', sans-serif; text-decoration: none; font-size: 1.05rem; }
-.brand-mark { width: 14px; height: 14px; border-radius: 50%; background: linear-gradient(135deg, var(--navy), var(--teal)); box-shadow: 0 0 18px rgba(43, 179, 177, 0.4); display: block; }
-.brand img, .footer-logo img { width: 36px; height: 36px; display: block; object-fit: contain; }
-.site-nav { display: flex; align-items: center; gap: 1.2rem; }
-.site-nav a { position: relative; color: var(--text); text-decoration: none; font-weight: 600; }
-.nav-cta { padding: 0.7rem 1rem; border-radius: 999px; background: linear-gradient(135deg, var(--navy), var(--teal)); color: white !important; box-shadow: 0 8px 24px rgba(43, 179, 177, 0.26); }
-
-/* Hero and other styles (condensed) */
-h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; line-height: 1.1; margin: 0; }
-h1 { font-size: clamp(2.3rem, 4.5vw, 4.2rem); font-weight: 800; color: var(--navy); margin-bottom: 1rem; }
-.hero-copy h1 { font-size: clamp(2rem, 3.5vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.02; }
-.hero-subtext { margin: 0.5rem 0 0; color: var(--navy); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
-.hero-description { margin: 0.8rem 0 0; color: var(--muted); font-size: 0.95rem; }
-
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.95rem 1.3rem; border-radius: 999px; text-decoration: none; font-weight: 700; }
-
-.hero-image-frame { position: relative; width: 100%; max-width: 380px; margin-left: 2rem; border-radius: 32px; background: linear-gradient(160deg, rgba(11,31,58,0.05), rgba(43,179,177,0.05)); box-shadow: 0 30px 70px rgba(11,31,58,0.16); }
-.hero-image-frame img { width: 100%; height: auto; object-fit: contain; display: block; border-radius: 32px; }
-
-.section-heading h2 { margin-bottom: 0.8rem; }
-
-/* Footer */
-.site-footer { padding: 2rem 0; }
-
-</style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="page-bg"></div>
@@ -95,18 +24,19 @@ h1 { font-size: clamp(2.3rem, 4.5vw, 4.2rem); font-weight: 800; color: var(--nav
           <img src="logo.jpg" alt="Ecom Groove logo" class="brand-mark" />
           <span>Ecom Groove</span>
         </a>
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
         <nav class="site-nav">
           <a href="#problems">Problems</a>
           <a href="#presence">Growth</a>
           <a href="#packages">Packages</a>
           <a href="#testimonials">Testimonials</a>
-          <a href="#contact" class="nav-cta">Work With Us</a>
+          <a href="#contact">Contact</a>
         </nav>
+        <a href="#contact" class="nav-cta">Schedule a Meet</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
 
@@ -454,125 +384,6 @@ h1 { font-size: clamp(2.3rem, 4.5vw, 4.2rem); font-weight: 800; color: var(--nav
       </div>
     </footer>
 
-    <script>
-// Inlined from script.js to avoid external asset routing issues
-(function() {
-  const params = new URLSearchParams(window.location.search);
-  const contactStatus = params.get('contact');
-  
-  if (contactStatus) {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      const messageDiv = document.createElement('div');
-      messageDiv.className = `contact-message contact-${contactStatus}`;
-      messageDiv.style.cssText = `
-        margin-bottom: 2rem;
-        padding: 1.5rem;
-        border-radius: 8px;
-        font-weight: 500;
-        text-align: center;
-        animation: slideDown 0.3s ease-out;
-      `;
-      
-      if (contactStatus === 'success') {
-        messageDiv.textContent = '✓ Thank you! Your message has been sent successfully. We\\'ll get back to you soon!';
-        messageDiv.style.backgroundColor = '#d4edda';
-        messageDiv.style.color = '#155724';
-        messageDiv.style.borderLeft = '4px solid #28a745';
-      } else if (contactStatus === 'error') {
-        messageDiv.textContent = '✗ Oops! There was an error sending your message. Please try again or contact us directly.';
-        messageDiv.style.backgroundColor = '#f8d7da';
-        messageDiv.style.color = '#721c24';
-        messageDiv.style.borderLeft = '4px solid #dc3545';
-      }
-      
-      const contactShell = contactSection.querySelector('.contact-shell');
-      if (contactShell) {
-        contactShell.parentNode.insertBefore(messageDiv, contactShell);
-      } else {
-        contactSection.insertBefore(messageDiv, contactSection.firstChild);
-      }
-      
-      const cleanUrl = window.location.pathname;
-      window.history.replaceState({}, document.title, cleanUrl);
-      
-      setTimeout(() => {
-        messageDiv.style.opacity = '0';
-        messageDiv.style.transition = 'opacity 0.3s ease-out';
-        setTimeout(() => messageDiv.remove(), 300);
-      }, 5000);
-    }
-  }
-  
-  if (!document.querySelector('style[data-contact-animation]')) {
-    const style = document.createElement('style');
-    style.setAttribute('data-contact-animation', 'true');
-    style.textContent = `
-      @keyframes slideDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-    `;
-    document.head.appendChild(style);
-  }
-})();
-
-const navToggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.site-nav');
-
-if (navToggle && nav) {
-  navToggle.addEventListener('click', () => {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!expanded));
-    nav.classList.toggle('is-open');
-  });
-}
-
-const revealItems = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('is-visible');
-  });
-}, { threshold: 0.16 });
-revealItems.forEach((item) => observer.observe(item));
-
-const counters = document.querySelectorAll('.counter');
-const animateCounter = (element) => {
-  const target = Number(element.dataset.target || 0);
-  const duration = 1200;
-  const startTime = performance.now();
-  const prefix = element.dataset.prefix || '';
-  const suffix = element.dataset.suffix || '';
-  const tick = (time) => {
-    const progress = Math.min((time - startTime) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const value = Math.floor(target * eased);
-    const formatted = value.toLocaleString();
-    element.textContent = `${prefix}${formatted}${suffix}`;
-    if (progress < 1) requestAnimationFrame(tick);
-    else element.textContent = `${prefix}${target.toLocaleString()}${suffix}`;
-  };
-  requestAnimationFrame(tick);
-};
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      animateCounter(entry.target);
-      counterObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.6 });
-counters.forEach((counter) => counterObserver.observe(counter));
-
-const faqHeaders = document.querySelectorAll('.faq-header');
-faqHeaders.forEach((header) => {
-  header.addEventListener('click', () => {
-    const faqItem = header.parentElement;
-    const isActive = faqItem.classList.contains('active');
-    document.querySelectorAll('.faq-item.active').forEach((item) => { if (item !== faqItem) item.classList.remove('active'); });
-    faqItem.classList.toggle('active');
-  });
-});
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

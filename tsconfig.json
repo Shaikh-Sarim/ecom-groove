@@ -4,14 +4,17 @@
     "module": "commonjs",
     "lib": ["ES2020"],
     "types": ["node"],
-    "outDir": "./api",
-    "rootDir": "./api",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noImplicitAny": true
   },
   "include": ["api/**/*.ts"],
   "exclude": ["node_modules"]
 }
+

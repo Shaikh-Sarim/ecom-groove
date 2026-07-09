@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "Ecom Groove Vercel API with TypeScript",
   "scripts": {
-    "build": "echo \"skip build\""
+    "build": "tsc"
   },
   "dependencies": {
     "nodemailer": "^6.9.3",
-    "@vercel/node": "^3.0.0"
+    "@vercel/node": "^3.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0",
     "@types/nodemailer": "^6.4.14"
   }
 }

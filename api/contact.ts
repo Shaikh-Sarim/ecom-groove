@@ -1,4 +1,4 @@
-import { IncomingMessage, ServerResponse } from 'http';
+import { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
 interface ContactRequest {
@@ -8,49 +8,19 @@ interface ContactRequest {
   message: string;
 }
 
-const parseBody = async (req: IncomingMessage): Promise<Record<string, string>> => {
-  const chunks: Buffer[] = [];
-  for await (const chunk of req) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
-  }
-
-  const rawBody = Buffer.concat(chunks).toString();
-  const contentType = String(req.headers['content-type'] || '');
-
-  if (contentType.includes('application/json')) {
-    try {
-      return JSON.parse(rawBody) as Record<string, string>;
-    } catch {
-      return {};
-    }
-  }
-
-  if (contentType.includes('application/x-www-form-urlencoded')) {
-    return Object.fromEntries(new URLSearchParams(rawBody).entries());
-  }
-
-  return {};
-};
-
 export default async function handler(
-  req: IncomingMessage & { body?: ContactRequest },
-  res: ServerResponse
+  req: VercelRequest,
+  res: VercelResponse
 ): Promise<void> {
   if (req.method !== 'POST') {
-    res.writeHead(405, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ error: 'Method not allowed' }));
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const parsedBody = await parseBody(req);
-  req.body = parsedBody as unknown as ContactRequest;
-
-  const { name, email, brand, message } = req.body as ContactRequest;
+  const body = req.body as ContactRequest;
+  const { name, email, brand, message } = body;
 
   if (!name || !email || !message) {
-    res.writeHead(302, { Location: '/?contact=error&reason=missing-fields#contact' });
-    res.end();
-    return;
+    return res.redirect(302, '/?contact=error&reason=missing-fields#contact');
   }
 
   try {
@@ -98,11 +68,9 @@ export default async function handler(
       console.log('Preview email URL:', nodemailer.getTestMessageUrl(info));
     }
 
-    res.writeHead(302, { Location: '/?contact=success#contact' });
-    res.end();
+    return res.redirect(302, '/?contact=success#contact');
   } catch (error) {
     console.error('Email send failed:', error);
-    res.writeHead(302, { Location: '/?contact=error#contact' });
-    res.end();
+    return res.redirect(302, '/?contact=error#contact');
   }
 }

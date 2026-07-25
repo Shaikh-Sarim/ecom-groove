@@ -377,7 +377,7 @@ body {
 @media (max-width: 720px) {
   /* Put nav back to top for mobile */
   .site-header {
-    position: sticky;
+    position: fixed;
     top: 0;
     bottom: auto;
     left: 0;
@@ -392,9 +392,10 @@ body {
   .nav-wrap {
     width: 100%;
     margin: 0;
-    padding: 0.45rem 0.75rem;
+    padding: 0.35rem 0.6rem;
     border-radius: 0 !important;
     box-shadow: none;
+    border: none !important;
     align-items: center;
     gap: 0.6rem;
     box-sizing: border-box;
@@ -408,8 +409,8 @@ body {
   /* ensure toggle visible on mobile */
   .nav-toggle { display: block; }
 
-  /* Remove the large bottom padding added for desktop fixed nav */
-  body { padding-bottom: 0; }
+  /* Remove the large bottom padding added for desktop fixed nav and add top padding for fixed header */
+  body { padding-bottom: 0; padding-top: 68px; }
 
   /* Timeline: stack steps vertically in mobile view like reference images */
   .timeline-wrapper {

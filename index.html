@@ -17,18 +17,20 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page-bg"></div>
+    <div class="page-bg">
+      <canvas id="network-bg" aria-hidden="true"></canvas>
+    </div>
     <header class="site-header">
-      <div class="container nav-wrap">
+      <div class="nav-wrap">
         <a href="#home" class="brand">
           <img src="logo.jpg" alt="Ecom Groove logo" class="brand-mark" />
           <span><span class="brand-ecom">Ecom</span><span class="brand-groove"> Groove.</span></span>
         </a>
         <nav class="site-nav">
-          <a href="#problems">Problems</a>
-          <a href="#presence">Growth</a>
-          <a href="#packages">Packages</a>
-          <a href="#testimonials">Testimonials</a>
+          <a href="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>
           <a href="#contact" class="nav-cta nav-cta-mobile">Schedule a Meet</a>
         </nav>
@@ -65,158 +67,118 @@
         </div>
       </section>
 
-      <section class="section problem-section" id="problems">
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="about-inner reveal">
+            <p class="eyebrow">What makes us different</p>
+            <h2>We're a Growth Partner,<br />Not a Regular Service Agency</h2>
+            <p>Our ongoing mission is to help aspiring business owners achieve success that flows freely in abundance. That's what defines Ecom Groove.</p>
+            <p>Ecom Groove offers a proven system that has already helped clients with no previous experience generate millions in revenue — creating countless successful ecommerce stores.</p>
+            <p>It's so much more than just a service; it's a done-with-you profitable ecommerce solution.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section timeline-section">
+        <canvas id="timeline-bg" aria-hidden="true"></canvas>
+        <div class="timeline-graphic" aria-hidden="true">
+          <svg viewBox="0 0 1000 420" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 170 140 H 430" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 570 140 H 830" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 880 140 V 220" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 880 220 H 240" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 240 220 V 300" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 240 340 H 520" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+            <path d="M 560 340 H 780" stroke="#2bb3b1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6 14" fill="none" />
+          </svg>
+        </div>
         <div class="container">
           <div class="section-heading reveal">
-            <h2>Managing a Store doesn't have to be difficult.<br />We're here to help.</h2>
+            <h2>A proven path to <span class="text-accent">business success</span> in <span class="text-accent">90 days</span> or less</h2>
           </div>
-          <div class="card-grid three-cols">
-            <article class="info-card reveal">
-              <h3>Struggling to grow<br />your Daraz sales?</h3>
-              <p>From hunting to optimization, we don't just advise—we execute the exact strategy needed to rank your products and boost Daraz sales.</p>
+
+          <div class="timeline-wrapper reveal">
+            <article class="timeline-step step-01">
+              <span class="step-num">01</span>
+              <p>Customer Query</p>
             </article>
-            <article class="info-card reveal">
-              <h3>Frustrated with cut-<br />and-paste models?</h3>
-              <p>Every niche is unique. We build custom pricing, inventory, and campaign strategies to help your store beat the competition.</p>
+            <article class="timeline-step step-02">
+              <span class="step-num">02</span>
+              <p>Initial Meeting</p>
             </article>
-            <article class="info-card reveal">
-              <h3>Feeling like you're<br />left in the dark?</h3>
-              <p>We handle everything from fulfillment to customer chats, keeping you updated with clear sales growth reports.</p>
+            <article class="timeline-step step-03">
+              <span class="step-num">03</span>
+              <p>Quotation</p>
+            </article>
+            <article class="timeline-step step-04">
+              <span class="step-num">04</span>
+              <p>Invoicing</p>
+            </article>
+            <article class="timeline-step step-05">
+              <span class="step-num">05</span>
+              <p>Detailed Analysis</p>
+            </article>
+            <article class="timeline-step step-06">
+              <span class="step-num">06</span>
+              <p>Strategy &amp; Road Map</p>
+            </article>
+            <article class="timeline-step step-07">
+              <span class="step-num">07</span>
+              <p>Onboarding Call</p>
+            </article>
+            <article class="timeline-step step-08">
+              <span class="step-num">08</span>
+              <p>Let's Work Together</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section grow-presence-section" id="presence">
+      <section class="section services-page" id="services">
         <div class="container">
-          <div class="grow-grid">
-            <div class="grow-content reveal">
-              <h2>Grow your<br />presence.</h2>
-              <p>We'll help put your storefront on the top shelves of Daraz through expert optimization and full-scale account management.</p>
+          <div class="section-heading reveal">
+            <h2>Maximize Every Stage of Your E-Commerce Growth Journey</h2>
+            <p>No matter where your business stands — just starting out or already in motion — we offer services that are built around your growth. At Ecom Groove, we don't follow templates. We work with what makes sense for your business.</p>
+          </div>
+
+          <div class="services-layout">
+            <div class="services-sidebar reveal">
+              <div class="services-list">
+                <button class="service-item active" type="button" data-service="performance">Performance Marketing</button>
+                <button class="service-item" type="button" data-service="content">Content Creation</button>
+                <button class="service-item" type="button" data-service="daraz">Daraz Account Management</button>
+                <button class="service-item" type="button" data-service="web">Web Development</button>
+                <button class="service-item" type="button" data-service="3pl">3PL Services</button>
+              </div>
             </div>
-            <div class="grow-visual reveal">
-              <img src="image.png" alt="Growth dashboard" class="visual-placeholder" />
+
+            <div class="services-showcase reveal">
+              <div class="services-image-frame">
+                <img src="about.png" alt="Daraz account management team" />
+              </div>
+              <div class="services-content">
+                <p class="eyebrow">Performance Marketing</p>
+                <h3>Daraz Account Management</h3>
+                <p class="service-description">We don’t just manage your Daraz account — we grow it. From product uploads to ad campaigns and performance tracking, we work to increase your sales and improve store performance month over month.</p>
+                <ul>
+                  <li>Strategic ad campaigns tuned for Daraz</li>
+                  <li>Listing optimization with conversion-driven copy</li>
+                  <li>Real-time sales tracking and performance reporting</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section solution-section">
+
+
+
+
+      <section class="section testimonials-section" id="projects">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="eyebrow">Solution</p>
-            <h2>We don't advise. We execute.</h2>
-            <p>Every channel is built to drive measurable growth and improve store health.</p>
-          </div>
-          <div class="solution-grid">
-            <article class="solution-card reveal">
-              <div class="icon-bubble">🧠</div>
-              <h3>Product hunting</h3>
-              <p>We identify winning products before the market gets crowded.</p>
-            </article>
-            <article class="solution-card reveal">
-              <div class="icon-bubble">✍️</div>
-              <h3>Listing optimization</h3>
-              <p>Titles, images, descriptions, and keywords are tuned for higher conversion.</p>
-            </article>
-            <article class="solution-card reveal">
-              <div class="icon-bubble">🎯</div>
-              <h3>Ads management</h3>
-              <p>Campaigns are refined daily to spend smarter and scale faster.</p>
-            </article>
-            <article class="solution-card reveal">
-              <div class="icon-bubble">⚙️</div>
-              <h3>Full store automation</h3>
-              <p>Orders, operations, reporting, and updates run with more control and less friction.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section pricing-section" id="packages">
-        <div class="container">
-          <div class="section-heading reveal">
-            <h2>Our packages</h2>
-            <p>Choose from our affordable and customizable digital marketing packages.</p>
-          </div>
-          <div class="pricing-grid">
-            <article class="pricing-card reveal">
-              <p class="plan-label">KICKSTART</p>
-              <h3>1 Month</h3>
-              <ul>
-                <li>Duration: 1 Month</li>
-                <li>Basic account setup & creation</li>
-                <li>Listing optimization & SEO</li>
-              </ul>
-              <a href="#contact" class="btn btn-secondary">Get Started</a>
-            </article>
-            <article class="pricing-card featured reveal">
-              <p class="plan-label">GROWTH</p>
-              <h3>1 Month</h3>
-              <ul>
-                <li>Duration: 1 Months</li>
-                <li>Sales booster package</li>
-                <li>Daraz ads & product ranking</li>
-              </ul>
-              <a href="#contact" class="btn btn-primary">Book This Plan</a>
-            </article>
-            <article class="pricing-card reveal">
-              <p class="plan-label">PRO MANAGEMENT</p>
-              <h3>3 Months</h3>
-              <ul>
-                <li>Duration: 3 Months</li>
-                <li>Full A-to-Z store management</li>
-                <li>Hunting, ads & daily ops</li>
-              </ul>
-              <a href="#contact" class="btn btn-secondary">Talk To Us</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section why-section">
-        <div class="container why-wrap">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Why choose us</p>
-            <h2>Built for sellers who want more than "just support"</h2>
-          </div>
-          <div class="why-list">
-            <article class="why-item reveal">
-              <div class="icon-bubble">📊</div>
-              <div>
-                <h3>Data-driven strategies</h3>
-                <p>Every move is based on real performance signals, not guesswork.</p>
-              </div>
-            </article>
-            <article class="why-item reveal">
-              <div class="icon-bubble">👥</div>
-              <div>
-                <h3>Dedicated team</h3>
-                <p>You get focused specialists who treat growth like a serious operation.</p>
-              </div>
-            </article>
-            <article class="why-item reveal">
-              <div class="icon-bubble">⏱️</div>
-              <div>
-                <h3>Real-time monitoring</h3>
-                <p>We track what matters and respond before momentum slips.</p>
-              </div>
-            </article>
-            <article class="why-item reveal">
-              <div class="icon-bubble">🧾</div>
-              <div>
-                <h3>Transparent reporting</h3>
-                <p>Clear numbers, sharp insights, and no hidden complexity.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section testimonials-section" id="testimonials">
-        <div class="container">
-          <div class="section-heading reveal">
-            <h2>Our Successful Sellers</h2>
+            <h2>Our Projects</h2>
           </div>
           <div class="testimonial-grid">
             <article class="testimonial-card reveal">
@@ -238,71 +200,35 @@
         </div>
       </section>
 
-      <section class="section faq-section" id="faq">
+      <section class="section faq-section" id="faqs">
         <div class="container">
           <div class="section-heading reveal">
-            <h2>Frequently Asked<br />Questions</h2>
-            <p>Everything you need to know about growing your Daraz store.</p>
+            <h2>Direct Answers to Significant Questions</h2>
+            <p>Providing straightforward solutions to complex challenges, ensuring clarity and confidence in every decision you make.</p>
           </div>
-          <div class="faq-container">
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>How does store management affect my Daraz sales?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>Proper store management ensures your products are optimized, inventory is accurate, and customer experience is seamless. This directly impacts your ranking on Daraz and increases conversion rates. We handle everything from product organization to customer communication.</p>
-              </div>
+
+          <div class="faq-layout reveal">
+            <div class="faq-list">
+              <details>
+                <summary>What makes Ecom Groove different from other agencies?</summary>
+                <p>We act as a growth partner, combining hands-on operations with performance-driven strategy to deliver measurable results.</p>
+              </details>
+              <details>
+                <summary>How soon can I expect results after onboarding?</summary>
+                <p>Results begin within the first 30–45 days, depending on your category and product readiness.</p>
+              </details>
+              <details>
+                <summary>Is Ecom Groove only for big brands?</summary>
+                <p>No — we work with early-stage stores through established brands, tailoring work to fit scale and budget.</p>
+              </details>
+              <details>
+                <summary>What if I've never sold online before?</summary>
+                <p>We provide end-to-end setup and training so even first-time sellers can go live with confidence.</p>
+              </details>
             </div>
 
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>What's included in your marketing and ads management?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>We manage your Daraz ads campaigns by optimizing keywords, bidding strategies, and daily budget allocation. Our team continuously monitors performance and makes adjustments to maximize ROI. We also handle product promotion strategies to boost visibility.</p>
-              </div>
-            </div>
-
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>How can I improve my conversion rate?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>Conversion optimization involves perfecting your product listings with high-quality images, compelling descriptions, and SEO-optimized titles. We also improve pricing strategy, reduce cart abandonment, and enhance the checkout experience. A/B testing and customer feedback analysis are key parts of our process.</p>
-              </div>
-            </div>
-
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>How do you identify winning products for my store?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>Our product hunting process involves analyzing market trends, competitor analysis, demand forecasting, and seasonal opportunities. We identify products with high profit margins and low competition, then help you source and list them for maximum impact.</p>
-              </div>
-            </div>
-
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>What does listing optimization include?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>Listing optimization covers keyword research and implementation, title and description rewriting, image optimization, pricing strategy, and competitive positioning. Each element is designed to improve your search ranking and conversion rate on Daraz.</p>
-              </div>
-            </div>
-
-            <div class="faq-item reveal">
-              <button class="faq-header">
-                <h3>How long does it take to see results?</h3>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-content">
-                <p>Most clients see initial improvements in sales within 2-4 weeks. However, significant growth typically occurs after 2-3 months as your store gains traction and builds positive reviews. We provide weekly performance reports to track your progress.</p>
-              </div>
+            <div class="faq-image">
+              <img src="faq.svg" alt="Customer and consultant illustration" />
             </div>
           </div>
         </div>
@@ -358,30 +284,27 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-wrap">
-        <div class="footer-brand">
-          <a href="#home" class="footer-logo">
-            <img src="logo.jpg" alt="Ecom Groove logo" class="brand-mark" />
-            <span><span class="brand-ecom">Ecom</span><span class="brand-groove"> Groove.</span></span>
-          </a>
-          <p>Daraz Growth Partner</p>
-        </div>
-        <div class="footer-section">
-          <h3>Contact Us</h3>
-          <div class="footer-contact">
-            <p><strong>WhatsApp:</strong> +92 335 3528977</p>
-            <p><strong>Email:</strong> <a href="mailto:ecomgroove.service@gmail.com">ecomgroove.service@gmail.com</a></p>
-            <p><strong>Website:</strong> <a href="https://www.ecomgroove.com" target="_blank" rel="noreferrer">www.ecomgroove.com</a></p>
+      <div class="footer-hero">
+        <div class="container footer-hero-inner">
+          <div class="footer-brand-large">
+            <h1 class="footer-wordmark"><span class="brand-ecom-large">Ecom</span> <span class="brand-groove-large">Groove.</span></h1>
           </div>
+          <p class="footer-tagline">We are a service that helps you create and optimize your Daraz store for easy online selling and sustainable ecommerce growth.</p>
+          <a href="#contact" class="btn btn-primary schedule-btn">Schedule a Meet</a>
+
+          <!-- social links removed per design -->
         </div>
       </div>
+
       <div class="footer-divider"></div>
+
       <div class="container footer-bottom">
-        <p>&copy; 2026 Ecom Groove. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#home">Privacy Policy</a>
-          <a href="#home">Terms of Service</a>
-        </div>
+        <nav class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms Of Service</a>
+          <a href="#">Disclaimer</a>
+        </nav>
+        <p class="copyright">&copy; 2026 Ecom Groove. All rights reserved.</p>
       </div>
     </footer>
 
